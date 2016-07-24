@@ -1,0 +1,23 @@
+{
+  "name": "tonylin0826.github.io",
+  "version": "0.0.0",
+  "homepage": "https://github.com/tonylin0826/tonylin0826.github.io",
+  "authors": [
+    "Tony Lin <tonylin0826@gmail.com>"
+  ],
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

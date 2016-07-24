@@ -1,0 +1,36 @@
+.nav-center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+
+.nav-custom {
+	background-color: #37474f; 
+	min-height:80px; 
+	margin-bottom:0px; 
+	border-width:0px
+}
+
+.center {
+}
+
+.center-block {
+	width: 60%;
+}
+
+.circular-head {
+	width: 260px;
+	height: 260px;
+	border-radius: 130px;
+	-webkit-border-radius: 130px;
+	-moz-border-radius: 130px;
+	background: url(../asset/head.jpg) no-repeat;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+.margin60 {
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
