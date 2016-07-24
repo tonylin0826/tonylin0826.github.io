@@ -1,3 +1,8 @@
+@font-face {
+    font-family: mycourier;
+    src: url(../asset/courier.ttf);
+}
+
 .nav-center {
     margin: auto;
     width: 60%;
