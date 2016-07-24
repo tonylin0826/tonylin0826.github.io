@@ -3,6 +3,10 @@
     src: url(../asset/courier.ttf);
 }
 
+.body {
+	font-family: mycourier;
+}
+
 .nav-center {
     margin: auto;
     width: 60%;
@@ -38,4 +42,10 @@
 .margin60 {
 	margin-top: 60px;
 	margin-bottom: 60px;
+}
+
+.col-md-6 .row {
+	padding-bottom: 5px;
+	color:#EEEEEE; 
+	border-bottom:1px solid #E0E0E0;
 }
