@@ -16,27 +16,22 @@ a.active {
   color: #18BC9C;
   outline: none;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  font-weight: 700;
+body h1,h2,h3,h4,h5,h6{
+      font-family: 'Asap', sans-serif;
 }
+
 
 header {
   text-align: center;
-  background-image: url("../asset/1.jpg");
+  background: url("../asset/1.jpg") no-repeat 0px 0;
+    background-size: cover;
   color: white;
   padding-top: 100px;
   padding-bottom: 100px;
 }
 
 .navbar-custom {
-  background: #2C3E50;
+  background: rgba(255, 255, 255, 0);
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
@@ -114,5 +109,86 @@ header {
 .transparant-grid {
     margin: 4em 0 0 0;
     padding: 2em 1em;
-    background: rgba(255, 255, 255, 0.18);
+    background:rgba(23, 20, 20, 0.58);
+    padding-top: 50px;
+    padding-bottom: 80px;
+}
+
+.col-sm-7 h4 {
+    color: #C7C7C7;
+    margin-top: 0.8em;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+div hr {
+  margin-bottom: 5px;
+}
+
+ul.info {
+  padding: 0;
+}
+
+ul.info-text {
+  padding: 0;
+}
+
+ul.info li {
+  display: block;
+}
+
+ul.info li ul.info-text li{
+    display: inline-block;
+    color: #fff;
+    margin-top: 1em;
+    font-size: 1.3em;
+}
+
+ul.info li ul.info-text li:nth-child(1){
+  width: 20%;
+}
+
+section#about {
+  padding-top: 2em;
+}
+
+section#about h1{
+  letter-spacing: 2px;
+}
+
+section#portfolio {
+  background: url("../asset/s2.jpg") no-repeat 0px 0;
+  padding-top: 2em;
+  background-size: cover;
+}
+
+section#portfolio  {
+  color: white;
+  letter-spacing: 2px;
+}
+
+hr.thick-light {
+  max-width: 230px;
+  border-width: 3px;
+  border-color: rgb(255, 255, 255);
+}
+
+hr.thick-light + p {
+  margin-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 50px;
+}
+
+hr.thick-dark {
+  max-width: 230px;
+  border-width: 3px;
+  border-color: rgb(0, 0, 0);
+}
+
+hr.thick-dark + p {
+  margin-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 50px;
 }
