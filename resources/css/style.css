@@ -113,6 +113,13 @@ header {
     padding-bottom: 80px;
 }
 
+/*.transparant-port {
+  position: relative;  
+  background:rgba(23, 20, 20, 0.58);
+  min-width: 200px;
+  min-height: 200px;
+}*/
+
 .col-sm-7 h4 {
     color: #C7C7C7;
     margin-top: 0.8em;
