@@ -149,6 +149,7 @@ ul.info li ul.info-text li:nth-child(1){
 
 section#about {
   padding-top: 2em;
+  padding-bottom: 50px
 }
 
 section#about h1{
@@ -159,6 +160,8 @@ section#portfolio {
   background: url("../asset/s2.jpg") no-repeat 0px 0;
   padding-top: 2em;
   background-size: cover;
+
+  padding-bottom: 50px
 }
 
 section#portfolio  {
@@ -176,7 +179,6 @@ hr.thick-light + p {
   margin-top: 50px;
   padding-left: 30px;
   padding-right: 30px;
-  margin-bottom: 50px;
 }
 
 hr.thick-dark {
@@ -190,4 +192,15 @@ hr.thick-dark + p {
   padding-left: 30px;
   padding-right: 30px;
   margin-bottom: 50px;
+}
+
+.row + .row {  
+  margin-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 50px;
+}
+
+div img {
+  margin-bottom: 2em;
 }
