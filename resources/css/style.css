@@ -111,10 +111,11 @@ header {
     background:rgba(23, 20, 20, 0.58);
     padding-top: 50px;
     padding-bottom: 80px;
+    border-radius: 5px;
 }
 
 /*.transparant-port {
-  position: relative;  
+  position: relative;
   background:rgba(23, 20, 20, 0.58);
   min-width: 200px;
   min-height: 200px;
@@ -201,7 +202,7 @@ hr.thick-dark + p {
   margin-bottom: 50px;
 }
 
-.row + .row {  
+.row + .row {
   margin-top: 50px;
   padding-left: 30px;
   padding-right: 30px;
