@@ -101,7 +101,7 @@ Must plan to carry (or consciously drop with Tony):
 | Item | Notes |
 | --- | --- |
 | Terminal | **Ported** (`src/terminal/*`): bottom-right xterm.js; commands `help`, `profile`, `resume`, `portfolio`, `links`. `help`/`portfolio`/`links` verbatim from the old build; `profile` replaced with new copy (2026-11-08/09), built from `CURRENT_EMPLOYER_CLAUSE`. |
-| Resume | **PDF at `/resume.pdf`** (`public/resume.pdf`). Currently a "Resume coming soon" placeholder until Tony sends the real file. |
+| Resume | **PDF at `/resume.pdf`** (`public/resume.pdf`), Tony's real file. |
 | Social links | LinkedIn `https://www.linkedin.com/in/tonylintw/` confirmed (terminal + contact). |
 | Portfolio list | yeelight.io, Hikoo, ModbusMasterTool, http.io.c (plus older screenshots under `resources/asset/` on `main`). |
 | Analytics | **Dropped** (GA4 `G-ZFJKSDJ43L`). Do not add analytics. |
@@ -124,16 +124,15 @@ Must plan to carry (or consciously drop with Tony):
 - 2026-11-08: Tony decided **no PRs**: feature branches merge directly into `rebuild` (ff or merge) and are pushed once typecheck/tests/build pass. `main`/`gh-pages` still need his explicit approval; never force-push.
 - 2026-11-08: LinkedIn = `https://www.linkedin.com/in/tonylintw/` everywhere; `tony-lin-b18b29ba` dropped.
 - 2026-11-08: Terminal `links` "Github:" line stays `https://tonylin0826.github.io` (Tony: "my website").
-- 2026-11-08: Resume = PDF at `/resume.pdf` (Enhancv dropped); `public/resume.pdf` is a placeholder until Tony sends the file.
-- 2026-11-08: Google Analytics dropped completely (GA4 `G-ZFJKSDJ43L`); not in the rebuild and not to be added.
+- 2026-11-08: Resume = PDF at `/resume.pdf` (Enhancv dropped); `public/resume.pdf` was initially a placeholder (superseded by the 2026-11-09 entry below).- 2026-11-08: Google Analytics dropped completely (GA4 `G-ZFJKSDJ43L`); not in the rebuild and not to be added.
 - 2026-11-08: Terminal profile copy replaced with Tony's new text (cover-letter paragraph omitted). The current-employer clause lives in one exported constant, `CURRENT_EMPLOYER_CLAUSE` (`src/terminal/commands.ts`), now Google (see the 2026-11-09 entry below).
 - 2026-11-09: Tony starts at Google as a Senior Software Engineer (confirmed 2026-11-08). `CURRENT_EMPLOYER_CLAUSE` is now "I'm currently a senior software engineer at Google"; Smartsheet is past (title Senior Software Engineer, years still `[Years]`, bullets in past tense); Google experience entry added at the top (title only, nothing invented); headline and meta description mention Google.
 - 2026-11-09: Tony's LinkedIn used as the source to fill experience/projects; all `[Company]` / `[Years]` placeholders resolved. Google Nov 2026 – Present; Smartsheet Jan 2024 – Nov 2026 (two entries merged); GoSite, Ardomus Networks, Penpower and Eastek added. ViaTalk BT lives under Penpower only (removed from Projects); Fitmaniac added to Projects (unlinked). Terminal profile third paragraph now mentions GoSite then Ardomus so chronology is clear. Headline: "Senior software engineer at Google — full-stack, AI features, and IoT systems."
 - 2026-11-09: Locations and the private "open to work" banner from LinkedIn are **intentionally omitted** from the site.
+- 2026-11-09: Tony supplied the real resume PDF; it replaces the placeholder at `public/resume.pdf` (committed unchanged, byte-for-byte). URLs stay `/resume.pdf`.
 
 ## Open questions (pending Tony)
 
-- **Real `resume.pdf`:** send the file to replace the placeholder in `public/resume.pdf`.
 - **Hobbies copy** ("Outside work" panel, `TODO(Tony)` in `index.html`) still pending.
 - **http.io.c** label/URL TODO in `index.html` (repo is named `yeelight.io.c`).
 

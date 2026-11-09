@@ -21,7 +21,7 @@ export interface Command {
 
 export const GREETING = "Hello, my name is Tony. Type 'help' to see more";
 export const PROMPT = '$ ';
-/** Same-origin PDF (public/resume.pdf). Placeholder until Tony supplies the real file. */
+/** Same-origin PDF (public/resume.pdf). Tony's real resume. */
 export const RESUME_URL = '/resume.pdf';
 
 /** Descriptions as shown in the help listing. */
