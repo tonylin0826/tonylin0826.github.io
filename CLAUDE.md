@@ -103,7 +103,7 @@ Must plan to carry (or consciously drop with Tony):
 | Terminal | **Ported** (`src/terminal/*`): bottom-right xterm.js; commands `help`, `profile`, `resume`, `portfolio`, `links`. `help`/`portfolio`/`links` verbatim from the old build; `profile` replaced with new copy (2026-11-08/09), built from `CURRENT_EMPLOYER_CLAUSE`. |
 | Resume | **PDF at `/resume.pdf`** (`public/resume.pdf`), Tony's real file. |
 | Social links | LinkedIn `https://www.linkedin.com/in/tonylintw/` confirmed (terminal + contact). |
-| Portfolio list | yeelight.io, Hikoo, ModbusMasterTool, http.io.c (plus older screenshots under `resources/asset/` on `main`). |
+| Portfolio list | yeelight.io, Hikoo, ModbusMasterTool (plus older screenshots under `resources/asset/` on `main`). |
 | Analytics | **Dropped** (GA4 `G-ZFJKSDJ43L`). Do not add analytics. |
 | Deploy | GitHub Pages; plan GitHub Actions at launch, keep `gh-pages` live until then. |
 | Images | Oversized background images on live build — replace. |
@@ -130,11 +130,12 @@ Must plan to carry (or consciously drop with Tony):
 - 2026-11-09: Tony's LinkedIn used as the source to fill experience/projects; all `[Company]` / `[Years]` placeholders resolved. Google Nov 2026 – Present; Smartsheet Jan 2024 – Nov 2026 (two entries merged); GoSite, Ardomus Networks, Penpower and Eastek added. ViaTalk BT lives under Penpower only (removed from Projects); Fitmaniac added to Projects (unlinked). Terminal profile third paragraph now mentions GoSite then Ardomus so chronology is clear. Headline: "Senior software engineer at Google — full-stack, AI features, and IoT systems."
 - 2026-11-09: Locations and the private "open to work" banner from LinkedIn are **intentionally omitted** from the site.
 - 2026-11-09: Tony supplied the real resume PDF; it replaces the placeholder at `public/resume.pdf` (committed unchanged, byte-for-byte). URLs stay `/resume.pdf`.
+- 2026-11-09: http.io.c excluded from the site at Tony's request (Projects panel and terminal `portfolio`); the GitHub repo itself is untouched.
+- 2026-11-09: "Outside work" hobbies copy generated (two short first-person paragraphs) from only the confirmed facts: badminton, golf, three dogs Rachel/Oreo/Kuro, and the scroll-scene order. No hobbies terminal command exists, so nothing was mirrored there; `PROFILE_PARAGRAPHS` unchanged.
 
 ## Open questions (pending Tony)
 
-- **Hobbies copy** ("Outside work" panel, `TODO(Tony)` in `index.html`) still pending.
-- **http.io.c** label/URL TODO in `index.html` (repo is named `yeelight.io.c`).
+None at the moment.
 
 ## LinkedIn data not on the page (available if wanted)
 
