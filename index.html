@@ -5,9 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Tony Lin — Software Engineer</title>
     <meta name="description" content="Tony Lin's personal website: a scroll-driven tour of his work as a software engineer." />
+    <meta name="theme-color" content="#d9d9d9" />
+    <!-- Decide the layout before first paint (no layout shift): scroll mode unless reduced motion is requested.
+         Without JS neither class is set and the page renders as the plain static layout. -->
+    <script>
+      (function () {
+        var c = document.documentElement.classList;
+        c.add('js');
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) c.add('scroll-mode');
+      })();
+    </script>
   </head>
   <body>
-    <div id="app"></div>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <p class="site-header__name">Tony Lin</p>
+      <a class="resume-link" href="https://app.enhancv.com/share/96f104d4?utm_medium=growth&amp;utm_campaign=share-resume&amp;utm_source=dynamic" target="_blank" rel="noopener">Skip to resume<span class="visually-hidden"> (opens in new tab)</span></a>
+    </header>
+
+    <main id="main">
+      <div id="scroll-track" class="scroll-track">
+        <!-- Decorative frame canvas is injected here by the scroll engine. -->
+        <div class="stage" aria-hidden="true"></div>
+
+        <div class="panels">
+          <section class="panel panel--intro is-active" data-at="start" data-still-alt="Tony playing badminton" aria-labelledby="panel-intro">
+            <h1 id="panel-intro" class="intro__name">Tony Lin</h1>
+            <p class="intro__role">Software Engineer</p>
+            <!-- TODO(Tony): confirm the one-line summary copy -->
+            <p class="intro__summary">Full-stack engineer building IoT platforms and developer tools.</p>
+            <a class="button" href="https://app.enhancv.com/share/96f104d4?utm_medium=growth&amp;utm_campaign=share-resume&amp;utm_source=dynamic" target="_blank" rel="noopener">Skip to resume<span class="visually-hidden"> (opens in new tab)</span></a>
+          </section>
+
+          <section class="panel" data-hero="golf" data-still-alt="Tony playing golf" aria-labelledby="panel-projects">
+            <h2 id="panel-projects">Projects</h2>
+            <ul>
+              <li><a href="https://www.npmjs.com/package/yeelight.io" target="_blank" rel="noopener">yeelight.io<span class="visually-hidden"> (opens in new tab)</span></a> — Node.js library for controlling Yeelight smart lights.</li>
+              <li><a href="https://hikoo-team.github.io/hikoo" target="_blank" rel="noopener">Hikoo<span class="visually-hidden"> (opens in new tab)</span></a> — team project; TODO(Tony): one-line description.</li>
+              <li><a href="https://github.com/tonylin0826/ModbusMasterTool" target="_blank" rel="noopener">Modbus Master Tool<span class="visually-hidden"> (opens in new tab)</span></a> — desktop tool for testing Modbus devices.</li>
+              <!-- TODO(Tony): confirm label/URL; the repo is named yeelight.io.c -->
+              <li><a href="https://github.com/tonylin0826/yeelight.io.c" target="_blank" rel="noopener">http.io.c<span class="visually-hidden"> (opens in new tab)</span></a> — C implementation of the Yeelight protocol.</li>
+            </ul>
+          </section>
+
+          <section class="panel" data-hero="dogs" data-still-alt="Tony with his three dogs, Rachel, Oreo and Kuro" aria-labelledby="panel-hobbies">
+            <h2 id="panel-hobbies">Outside work</h2>
+            <!-- TODO(Tony): final hobbies copy -->
+            <ul>
+              <li>Badminton</li>
+              <li>Golf</li>
+              <li>Dogs: Rachel, Oreo and Kuro</li>
+            </ul>
+          </section>
+
+          <section class="panel" data-hero="engineer" data-still-alt="Tony at work as a software engineer" aria-labelledby="panel-experience">
+            <h2 id="panel-experience">Experience</h2>
+            <!-- TODO(Tony): replace placeholder copy -->
+            <ul>
+              <li><strong>Ardomus Networks</strong> (a Zyxel subsidiary) — led a 6-person IoT team; built a head-end system (HES) for Taiwan Power's AMI project.</li>
+              <li><strong>AWS Hack for Good</strong> — 2nd place.</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+
+      <section id="contact" class="section" aria-labelledby="contact-title">
+        <h2 id="contact-title">Elsewhere</h2>
+        <ul>
+          <li><a href="https://github.com/tonylin0826" target="_blank" rel="noopener">GitHub<span class="visually-hidden"> (opens in new tab)</span></a></li>
+          <!-- TODO(Tony): confirm LinkedIn URL: tonylintw vs tony-lin-b18b29ba -->
+          <li><a href="https://www.linkedin.com/in/tonylintw/" target="_blank" rel="noopener">LinkedIn<span class="visually-hidden"> (opens in new tab)</span></a></li>
+          <li><a href="https://www.npmjs.com/package/yeelight.io" target="_blank" rel="noopener">npm<span class="visually-hidden"> (opens in new tab)</span></a></li>
+          <li><a href="https://stackoverflow.com/users/2279854/tony-lin" target="_blank" rel="noopener">Stack Overflow<span class="visually-hidden"> (opens in new tab)</span></a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Tony Lin</p>
+    </footer>
+
+    <div id="terminal-root"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
