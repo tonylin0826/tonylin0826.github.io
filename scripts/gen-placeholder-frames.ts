@@ -75,10 +75,13 @@ function renderSvg(job: FrameJob): string {
   if (heroId !== null) {
     // Hero frames: identical across the clip boundary (no clip id / frame number / progress).
     parts.push(`<rect width="${w}" height="${h}" fill="${HERO_BG}"/>`);
+    // Fit the label to 86% of the safe width (bold sans-serif averages ~0.62em per glyph).
+    const label = `HERO: ${heroId}`;
+    const heroFont = Math.min(safeW * 0.13, (safeW * 0.86) / (label.length * 0.62));
     parts.push(
       `<text x="${cx}" y="${h * 0.5}" text-anchor="middle" dominant-baseline="middle" ` +
-        `font-family="${FONT}" font-weight="700" font-size="${safeW * 0.13}" fill="${HERO_FG}">` +
-        `HERO: ${escapeXml(heroId)}</text>`,
+        `font-family="${FONT}" font-weight="700" font-size="${heroFont.toFixed(1)}" fill="${HERO_FG}">` +
+        `${escapeXml(label)}</text>`,
     );
     parts.push(
       `<text x="${cx}" y="${h * 0.5 + safeW * 0.16}" text-anchor="middle" font-family="${FONT}" ` +
