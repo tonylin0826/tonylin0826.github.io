@@ -72,7 +72,7 @@ export function wrapText(text: string, width: number): string[] {
 export const PROFILE_PARAGRAPHS: string[] = [
   `I've been a software engineer for about nine years, and ${CURRENT_EMPLOYER_CLAUSE}. My experience spans full-stack development, backend services, and earlier in my career, embedded IoT systems and native Android applications.`,
   'At Smartsheet, I led the technical design and implementation of an AI formula generation feature used by around 42,000 weekly active users. I also designed a secure developer tunneling proof of concept using mTLS and Kubernetes that reduced development and testing iteration time by roughly 90%.',
-  'Earlier, I led a team of six engineers building a backend system supporting the management and communication of over 70,000 smart meters. I worked directly with Taiwan Power stakeholders to clarify requirements and translate them into concrete engineering work. I also led development of ViaTalkBT, a native Android app that turned a phone into a wireless input device for voice typing and trackpad control.',
+  "Before that, I led product work at GoSite, including the Estimate product and the pricing and self-service checkout flow. Earlier, at Ardomus Networks, I led a team of six building a Head-End System for Taiwan's advanced metering infrastructure, managing over 70,000 meters, working directly with Taiwan Power stakeholders. I also led development of ViaTalk BT, a native Android app that turned a phone into a wireless input device for voice typing and trackpad control.",
 ];
 
 export const PROFILE_LINES: string[] = PROFILE_PARAGRAPHS.flatMap((p, i) => [

@@ -50,9 +50,12 @@ describe('commands (verbatim copy)', () => {
     expect(paragraphs[0]).toContain(`about nine years, and ${CURRENT_EMPLOYER_CLAUSE}. My experience spans`);
     expect(paragraphs[1]).toContain('around 42,000 weekly active users');
     expect(paragraphs[1]).toContain('roughly 90%.');
-    expect(paragraphs[2]).toContain('over 70,000 smart meters');
+    expect(paragraphs[2]).toContain('over 70,000 meters');
     expect(paragraphs[2]?.endsWith('voice typing and trackpad control.')).toBe(true);
-    expect(lines.join(' ')).not.toMatch(/Ardomus|AWS|Andreas|RCS/);
+    // chronology: GoSite is mentioned before Ardomus Networks
+    expect(paragraphs[2]?.indexOf('GoSite')).toBeGreaterThanOrEqual(0);
+    expect(paragraphs[2]?.indexOf('GoSite')).toBeLessThan(paragraphs[2]?.indexOf('Ardomus Networks') ?? -1);
+    expect(lines.join(' ')).not.toMatch(/AWS|Andreas|RCS/);
   });
 
   it('CURRENT_EMPLOYER_CLAUSE feeds the profile', () => {
