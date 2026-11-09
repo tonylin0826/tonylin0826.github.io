@@ -46,7 +46,7 @@ Preview old `main`: open `index.html` or run any static server from the repo roo
 
 ## Repo conventions
 
-- **OPEN QUESTION (pending Tony):** do feature branches merge into `rebuild` via PR or by direct push? His kickoff said PRs he reviews; earlier (2026-11-08) he said push directly. Until answered: **push feature branches, but do not merge into `rebuild`** (and don't open PRs).
+- **No pull requests** (Tony, 2026-11-08): push directly. Feature branches branch off `rebuild` and are merged into `rebuild` directly (fast-forward or regular merge) and pushed once typecheck, tests and build pass.
 - Rebuild work lives on branch `rebuild`. Feature branches branch off `rebuild`.
 - `main` stays untouched until launch. At launch, `rebuild` merges into `main` only with Tony's **explicit approval**.
 - **Never force-push.**
@@ -91,7 +91,7 @@ Terminal mounts into `#terminal-root` after first paint (`requestIdleCallback`, 
 - TypeScript, strict mode.
 - Small focused commits; clear messages; no drive-by refactors or unexplained new dependencies (say why before adding any).
 - Tests for core logic.
-- Lighthouse **90+** on mobile for performance, accessibility, best practices, and SEO.
+- Lighthouse **90+** on mobile for performance, accessibility, best practices, and SEO. Last run (mobile, placeholder frames, local preview): perf 100, a11y 100, best-practices 96 (console 404 from the `/assets/frames/manifest.json` probe), SEO 91 (invalid `robots.txt`). Fixes: `public/robots.txt`, `public/favicon.svg`, and the build-time `__HAS_ASSET_FRAMES__` constant that skips the probe when `assets/frames/manifest.json` is absent (dev always probes; `VITE_FRAMES_BASE` still overrides).
 - Accessibility: semantic HTML, keyboard navigation, visible focus states, `prefers-reduced-motion` respected for scroll animations, alt text, sufficient contrast.
 
 ## Carry-over from the old site
@@ -112,7 +112,7 @@ Must plan to carry (or consciously drop with Tony):
 ## Decisions log
 
 - 2026-11-08: `master` → `main`; tagged `v1-old-site`.
-- 2026-11-08: Tony said push directly (no PRs); his later kickoff mentioned PRs — see the open question in Repo conventions. Never force-push; never push `main`/`gh-pages` without approval.
+- 2026-11-08: Tony said push directly (no PRs); never force-push; never push `main`/`gh-pages` without approval.
 - 2026-11-08: Claude Code adopted for all coding work; this file + `.claude/settings.json` added on `setup/claude-code`.
 - 2026-11-08: Rebuild stack chosen: Vite 7 + strict TS vanilla, GSAP ScrollTrigger, xterm.js, Vitest, sharp/tsx scripts, Node 20+.
 - 2026-11-08: Frames manifest schema v1 agreed with VAP (see `docs/asset-contract.md`); VAP owns `assets/frames/`.
@@ -121,7 +121,7 @@ Must plan to carry (or consciously drop with Tony):
 - 2026-11-08: Placeholder frames are generated into `public/placeholder-frames/` and gitignored.
 - 2026-11-08: Scroll engine uses a `position: sticky` stage with ScrollTrigger supplying scrub progress only (no `pin` / pin-spacer), for iOS Safari robustness (no layout jumps, no transform-pinning jank with dynamic toolbars; heights use `svh`).
 - 2026-11-08: Sticky layout fix: the stage is a plain sticky block (no negative bottom margin, which let it stick past the track end and cover `#contact`); `.panels` overlays it via negative `margin-top`. The first panel is the page headline (the only `<h1>`); the fixed header is a compact name + "Skip to resume" bar.
-- PR vs direct push into `rebuild`: **OPEN** (pending Tony).
+- 2026-11-08: Tony decided **no PRs**: feature branches merge directly into `rebuild` (ff or merge) and are pushed once typecheck/tests/build pass. `main`/`gh-pages` still need his explicit approval; never force-push.
 - GA4 keep/drop: **TBD**.
 - LinkedIn URL: **TBD**.
 - Resume format (Enhancv vs PDF): **TBD**.
@@ -133,4 +133,3 @@ Must plan to carry (or consciously drop with Tony):
 - **Profile copy is outdated** ("more than 4 years", "Last year ... AWS Hack for Good") and has typos ("more the 10 million dollars"). Kept verbatim pending Tony.
 - **Resume:** keep the Enhancv link or switch to a PDF.
 - **GA4** (`G-ZFJKSDJ43L`): keep or drop.
-- **PR vs direct push** for merging into `rebuild`.

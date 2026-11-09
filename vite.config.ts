@@ -52,8 +52,14 @@ function framesPlugin(): Plugin {
   };
 }
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   base: '/',
+  define: {
+    // Build: only probe /assets/frames/manifest.json if it exists (avoids a console 404). Dev always probes.
+    __HAS_ASSET_FRAMES__: JSON.stringify(
+      command === 'serve' || existsSync(resolve(FRAMES_DIR, 'manifest.json')),
+    ),
+  },
   publicDir: 'public',
   plugins: [framesPlugin()],
   build: {
@@ -63,4 +69,4 @@ export default defineConfig({
     environment: 'node',
     include: ['src/**/*.test.ts'],
   },
-});
+}));

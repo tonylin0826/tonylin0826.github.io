@@ -33,6 +33,11 @@ export async function loadFramesSource(): Promise<FramesSource> {
     const base = withTrailingSlash(override);
     return { base, manifest: await fetchManifest(base), isPlaceholder: base === PLACEHOLDER_BASE };
   }
+  // Skip the probe (and its console 404) when the build found no real frames. Undefined under Vitest.
+  const probeReal = typeof __HAS_ASSET_FRAMES__ === 'undefined' || __HAS_ASSET_FRAMES__;
+  if (!probeReal) {
+    return { base: PLACEHOLDER_BASE, manifest: await fetchManifest(PLACEHOLDER_BASE), isPlaceholder: true };
+  }
   try {
     return { base: REAL_BASE, manifest: await fetchManifest(REAL_BASE), isPlaceholder: false };
   } catch {
