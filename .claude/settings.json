@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(npm test*)",
+      "Bash(npx tsc*)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git branch)",
+      "Bash(git branch --list*)",
+      "Bash(git switch*)",
+      "Bash(git checkout -b*)",
+      "Bash(git add*)",
+      "Bash(git commit*)",
+      "Bash(git fetch*)",
+      "Bash(git pull*)",
+      "Bash(gh pr view*)",
+      "Bash(gh pr list*)",
+      "Bash(gh pr create*)",
+      "Bash(gh pr status*)"
+    ],
+    "ask": [
+      "Bash(git push*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git push --force-with-lease*)",
+      "Bash(git branch -d*)",
+      "Bash(git branch -D*)",
+      "Bash(git push origin --delete*)",
+      "Bash(git push origin :*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean*)",
+      "Bash(git rebase*)",
+      "Bash(git remote*)",
+      "Bash(rm -rf*)",
+      "Bash(rm -r*)",
+      "Bash(npm install*)",
+      "Bash(npm i *)"
+    ],
+    "deny": [
+      "Edit(assets/frames/**)",
+      "Edit(**/assets/frames/**)",
+      "Edit(manifest.json)",
+      "Edit(**/manifest.json)",
+      "Read(.env)",
+      "Read(.env*)",
+      "Read(**/.env)",
+      "Read(**/.env*)"
+    ]
+  }
+}
