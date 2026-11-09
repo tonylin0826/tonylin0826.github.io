@@ -84,7 +84,7 @@ Page is complete static HTML (`index.html`, content panels are real DOM text); J
 
 Panels: headline → `start` (badminton), projects → golf, hobbies → dogs, experience → engineer; `#contact` is a normal section after the track. Inactive panels stay in the accessibility tree (opacity + `pointer-events: none` only); focusing a link in one scrolls to its hold.
 
-Terminal mounts into `#terminal-root` (not implemented yet).
+Terminal mounts into `#terminal-root` after first paint (`requestIdleCallback`, `setTimeout` fallback). `src/terminal/commands.ts` (pure: copy verbatim from the old site, registry, `runCommand`, `complete`), `src/terminal/lineEditor.ts` (pure key → buffer/writes/submit state machine), `src/terminal/Terminal.ts` (`mountTerminal`: toggle button + non-modal dialog; xterm and its CSS are dynamically imported only on first open or toggle hover/focus, so they are not in the entry chunk; `screenReaderMode` on, plus a visually-hidden command list and resume link; Escape closes and returns focus). Deviation from the original: `runCommand` trims input and matches the first whitespace-separated token.
 
 ## Code style and quality bar
 
@@ -100,7 +100,7 @@ Must plan to carry (or consciously drop with Tony):
 
 | Item | Notes |
 | --- | --- |
-| Terminal | Bottom-right xterm.js; commands `help`, `profile`, `resume`, `portfolio`, `links`. Command map + copy are portable; Angular wrapper is not — rewrite the UI shell. |
+| Terminal | **Ported** (`src/terminal/*`): bottom-right xterm.js; commands `help`, `profile`, `resume`, `portfolio`, `links`, copy verbatim from the old build. See Open questions for copy issues kept as-is. |
 | Resume | Enhancv link (confirm whether to keep link or add a PDF). |
 | Social links | LinkedIn URL inconsistency: `tonylintw` vs `tony-lin-b18b29ba` — resolve with Tony. |
 | Portfolio list | yeelight.io, Hikoo, ModbusMasterTool, http.io.c (plus older screenshots under `resources/asset/` on `main`). |
@@ -125,3 +125,12 @@ Must plan to carry (or consciously drop with Tony):
 - GA4 keep/drop: **TBD**.
 - LinkedIn URL: **TBD**.
 - Resume format (Enhancv vs PDF): **TBD**.
+
+## Open questions (pending Tony)
+
+- **LinkedIn URL mismatch:** terminal `links` uses `linkedin.com/in/tonylintw/`; the old site's icon used `linkedin.com/in/tony-lin-b18b29ba`. Kept as-is.
+- **`links` "Github:" line** actually points to `https://tonylin0826.github.io` (the site, not `github.com/tonylin0826`). Kept as-is.
+- **Profile copy is outdated** ("more than 4 years", "Last year ... AWS Hack for Good") and has typos ("more the 10 million dollars"). Kept verbatim pending Tony.
+- **Resume:** keep the Enhancv link or switch to a PDF.
+- **GA4** (`G-ZFJKSDJ43L`): keep or drop.
+- **PR vs direct push** for merging into `rebuild`.

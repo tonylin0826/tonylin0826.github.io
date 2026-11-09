@@ -20,4 +20,16 @@ async function init(): Promise<void> {
   }
 }
 
+/** Mount the terminal toggle after first paint; xterm itself loads only on first open. */
+function mountTerminalWhenIdle(): void {
+  const root = document.getElementById('terminal-root');
+  if (!root) return;
+  const mount = () => {
+    void import('./terminal/Terminal').then((m) => m.mountTerminal(root)).catch((err) => console.error('Terminal unavailable.', err));
+  };
+  if ('requestIdleCallback' in window) window.requestIdleCallback(mount, { timeout: 2000 });
+  else setTimeout(mount, 200);
+}
+
 void init();
+mountTerminalWhenIdle();
