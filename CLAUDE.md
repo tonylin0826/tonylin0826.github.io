@@ -128,31 +128,19 @@ Must plan to carry (or consciously drop with Tony):
 - 2026-11-08: Google Analytics dropped completely (GA4 `G-ZFJKSDJ43L`); not in the rebuild and not to be added.
 - 2026-11-08: Terminal profile copy replaced with Tony's new text (cover-letter paragraph omitted). The current-employer clause lives in one exported constant, `CURRENT_EMPLOYER_CLAUSE` (`src/terminal/commands.ts`), now Google (see the 2026-11-09 entry below).
 - 2026-11-09: Tony starts at Google as a Senior Software Engineer (confirmed 2026-11-08). `CURRENT_EMPLOYER_CLAUSE` is now "I'm currently a senior software engineer at Google"; Smartsheet is past (title Senior Software Engineer, years still `[Years]`, bullets in past tense); Google experience entry added at the top (title only, nothing invented); headline and meta description mention Google.
-- 2026-11-08: Headline, experience and projects copy in `index.html` is a **draft** derived only from Tony's supplied facts, pending his review (see "Draft site copy").
+- 2026-11-09: Tony's LinkedIn used as the source to fill experience/projects; all `[Company]` / `[Years]` placeholders resolved. Google Nov 2026 – Present; Smartsheet Jan 2024 – Nov 2026 (two entries merged); GoSite, Ardomus Networks, Penpower and Eastek added. ViaTalk BT lives under Penpower only (removed from Projects); Fitmaniac added to Projects (unlinked). Terminal profile third paragraph now mentions GoSite then Ardomus so chronology is clear. Headline: "Senior software engineer at Google — full-stack, AI features, and IoT systems."
+- 2026-11-09: Locations and the private "open to work" banner from LinkedIn are **intentionally omitted** from the site.
 
 ## Open questions (pending Tony)
 
 - **Real `resume.pdf`:** send the file to replace the placeholder in `public/resume.pdf`.
-- **Draft headline / experience / projects:** review the copy below; fill in `[Company]` / `[Years]`.
 - **Hobbies copy** ("Outside work" panel, `TODO(Tony)` in `index.html`) still pending.
 - **http.io.c** label/URL TODO in `index.html` (repo is named `yeelight.io.c`).
 
-## Draft site copy (pending Tony review)
+## LinkedIn data not on the page (available if wanted)
 
-Headline one-liner (`intro__summary`, and the meta description):
-
-> Senior software engineer at Google with about nine years across full-stack, backend, embedded IoT and native Android.
-
-Experience (`[Company]` / `[Years]` unknown):
-
-- **Google** 2026–present — Senior Software Engineer (title only; no description).
-- **Smartsheet** [Years] — Senior Software Engineer. Led the technical design and implementation of an AI formula generation feature used by around 42,000 weekly active users.
-- **Smartsheet** [Years] — Senior Software Engineer. Designed a secure developer tunneling proof of concept using mTLS and Kubernetes that cut development and testing iteration time by roughly 90%.
-- **[Company]** [Years] — led a team of six engineers building a backend system for the management and communication of over 70,000 smart meters, working directly with Taiwan Power stakeholders.
-- **[Company]** [Years] — led development of ViaTalkBT, a native Android app that turns a phone into a wireless input device for voice typing and trackpad control.
-
-Projects (new, unlinked — no known URL):
-
-- **ViaTalkBT** — native Android app that turns a phone into a wireless input device for voice typing and trackpad control.
-
-Hikoo now reads "management platform for the government to better track and protect hikers." (from the terminal `portfolio` copy). yeelight.io, Modbus Master Tool and http.io.c are unchanged.
+- **Education:** Yuan-Ze University, B.S. Computer Science, 2011–2015.
+- **Awards:** 2nd place, Hack for Good 2020 AWS Taiwan Virtual Hackathon; Cloudflare Developer Challenge Award (GoSite Key Contributor Award is already under GoSite).
+- **Skills:** TypeScript, React, Next.js, Kotlin, Kubernetes, Node.js, MongoDB, PostgreSQL, C/C++, Android, Bluetooth LE, IoT / smart metering.
+- Also omitted for brevity: Ardomus App Builder and the embedded non-blocking C++ HTTP server library.
+- Eastek (Aug–Sep 2014) overlaps Penpower (Feb 2014 – Jan 2015) as given on LinkedIn; kept as-is.
