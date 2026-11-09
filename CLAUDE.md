@@ -84,7 +84,7 @@ Page is complete static HTML (`index.html`, content panels are real DOM text); J
 
 Panels: headline → `start` (badminton), projects → golf, hobbies → dogs, experience → engineer; `#contact` is a normal section after the track. Inactive panels stay in the accessibility tree (opacity + `pointer-events: none` only); focusing a link in one scrolls to its hold.
 
-Terminal mounts into `#terminal-root` after first paint (`requestIdleCallback`, `setTimeout` fallback). `src/terminal/commands.ts` (pure: copy verbatim from the old site, registry, `runCommand`, `complete`), `src/terminal/lineEditor.ts` (pure key → buffer/writes/submit state machine), `src/terminal/Terminal.ts` (`mountTerminal`: toggle button + non-modal dialog; xterm and its CSS are dynamically imported only on first open or toggle hover/focus, so they are not in the entry chunk; `screenReaderMode` on, plus a visually-hidden command list and resume link; Escape closes and returns focus). Deviation from the original: `runCommand` trims input and matches the first whitespace-separated token.
+Terminal mounts into `#terminal-root` after first paint (`requestIdleCallback`, `setTimeout` fallback). `src/terminal/commands.ts` (pure: old-site copy for help/portfolio/links, new profile copy via `CURRENT_EMPLOYER_CLAUSE`, registry, `runCommand`, `complete`), `src/terminal/lineEditor.ts` (pure key → buffer/writes/submit state machine), `src/terminal/Terminal.ts` (`mountTerminal`: toggle button + non-modal dialog; xterm and its CSS are dynamically imported only on first open or toggle hover/focus, so they are not in the entry chunk; `screenReaderMode` on, plus a visually-hidden command list and resume link; Escape closes and returns focus). Deviation from the original: `runCommand` trims input and matches the first whitespace-separated token.
 
 ## Code style and quality bar
 
@@ -100,11 +100,11 @@ Must plan to carry (or consciously drop with Tony):
 
 | Item | Notes |
 | --- | --- |
-| Terminal | **Ported** (`src/terminal/*`): bottom-right xterm.js; commands `help`, `profile`, `resume`, `portfolio`, `links`, copy verbatim from the old build. See Open questions for copy issues kept as-is. |
-| Resume | Enhancv link (confirm whether to keep link or add a PDF). |
-| Social links | LinkedIn URL inconsistency: `tonylintw` vs `tony-lin-b18b29ba` — resolve with Tony. |
+| Terminal | **Ported** (`src/terminal/*`): bottom-right xterm.js; commands `help`, `profile`, `resume`, `portfolio`, `links`. `help`/`portfolio`/`links` verbatim from the old build; `profile` replaced with new copy (2026-11-08/09), built from `CURRENT_EMPLOYER_CLAUSE`. |
+| Resume | **PDF at `/resume.pdf`** (`public/resume.pdf`). Currently a "Resume coming soon" placeholder until Tony sends the real file. |
+| Social links | LinkedIn `https://www.linkedin.com/in/tonylintw/` confirmed (terminal + contact). |
 | Portfolio list | yeelight.io, Hikoo, ModbusMasterTool, http.io.c (plus older screenshots under `resources/asset/` on `main`). |
-| Analytics | GA4 `G-ZFJKSDJ43L` — keep/drop TBD. |
+| Analytics | **Dropped** (GA4 `G-ZFJKSDJ43L`). Do not add analytics. |
 | Deploy | GitHub Pages; plan GitHub Actions at launch, keep `gh-pages` live until then. |
 | Images | Oversized background images on live build — replace. |
 | PII | DOB / street address / phone in old `main` `index.html` — **do not carry over**. |
@@ -122,14 +122,36 @@ Must plan to carry (or consciously drop with Tony):
 - 2026-11-08: Scroll engine uses a `position: sticky` stage with ScrollTrigger supplying scrub progress only (no `pin` / pin-spacer), for iOS Safari robustness (no layout jumps, no transform-pinning jank with dynamic toolbars; heights use `svh`).
 - 2026-11-08: Sticky layout fix: the stage is a plain sticky block (no negative bottom margin, which let it stick past the track end and cover `#contact`); `.panels` overlays it via negative `margin-top`. The first panel is the page headline (the only `<h1>`); the fixed header is a compact name + "Skip to resume" bar.
 - 2026-11-08: Tony decided **no PRs**: feature branches merge directly into `rebuild` (ff or merge) and are pushed once typecheck/tests/build pass. `main`/`gh-pages` still need his explicit approval; never force-push.
-- GA4 keep/drop: **TBD**.
-- LinkedIn URL: **TBD**.
-- Resume format (Enhancv vs PDF): **TBD**.
+- 2026-11-08: LinkedIn = `https://www.linkedin.com/in/tonylintw/` everywhere; `tony-lin-b18b29ba` dropped.
+- 2026-11-08: Terminal `links` "Github:" line stays `https://tonylin0826.github.io` (Tony: "my website").
+- 2026-11-08: Resume = PDF at `/resume.pdf` (Enhancv dropped); `public/resume.pdf` is a placeholder until Tony sends the file.
+- 2026-11-08: Google Analytics dropped completely (GA4 `G-ZFJKSDJ43L`); not in the rebuild and not to be added.
+- 2026-11-08: Terminal profile copy replaced with Tony's new text (cover-letter paragraph omitted). The current-employer clause lives in one exported constant, `CURRENT_EMPLOYER_CLAUSE` (`src/terminal/commands.ts`), still Smartsheet; pending confirmation when Tony starts at Google on 2026-11-09.
+- 2026-11-08: Headline, experience and projects copy in `index.html` is a **draft** derived only from Tony's supplied facts, pending his review (see "Draft site copy").
 
 ## Open questions (pending Tony)
 
-- **LinkedIn URL mismatch:** terminal `links` uses `linkedin.com/in/tonylintw/`; the old site's icon used `linkedin.com/in/tony-lin-b18b29ba`. Kept as-is.
-- **`links` "Github:" line** actually points to `https://tonylin0826.github.io` (the site, not `github.com/tonylin0826`). Kept as-is.
-- **Profile copy is outdated** ("more than 4 years", "Last year ... AWS Hack for Good") and has typos ("more the 10 million dollars"). Kept verbatim pending Tony.
-- **Resume:** keep the Enhancv link or switch to a PDF.
-- **GA4** (`G-ZFJKSDJ43L`): keep or drop.
+- **`CURRENT_EMPLOYER_CLAUSE`:** confirm/update when he starts at Google on 2026-11-09 (also the "At Smartsheet" paragraph and Smartsheet experience bullets).
+- **Real `resume.pdf`:** send the file to replace the placeholder in `public/resume.pdf`.
+- **Draft headline / experience / projects:** review the copy below; fill in `[Company]` / `[Years]`.
+- **Hobbies copy** ("Outside work" panel, `TODO(Tony)` in `index.html`) still pending.
+- **http.io.c** label/URL TODO in `index.html` (repo is named `yeelight.io.c`).
+
+## Draft site copy (pending Tony review)
+
+Headline one-liner (`intro__summary`, and the meta description):
+
+> Senior software engineer with about nine years across full-stack, backend, embedded IoT and native Android.
+
+Experience (`[Company]` / `[Years]` unknown):
+
+- **Smartsheet** [Years] — senior software engineer. Led the technical design and implementation of an AI formula generation feature used by around 42,000 weekly active users.
+- **Smartsheet** [Years] — designed a secure developer tunneling proof of concept using mTLS and Kubernetes that cut development and testing iteration time by roughly 90%.
+- **[Company]** [Years] — led a team of six engineers building a backend system for the management and communication of over 70,000 smart meters, working directly with Taiwan Power stakeholders.
+- **[Company]** [Years] — led development of ViaTalkBT, a native Android app that turns a phone into a wireless input device for voice typing and trackpad control.
+
+Projects (new, unlinked — no known URL):
+
+- **ViaTalkBT** — native Android app that turns a phone into a wireless input device for voice typing and trackpad control.
+
+Hikoo now reads "management platform for the government to better track and protect hikers." (from the terminal `portfolio` copy). yeelight.io, Modbus Master Tool and http.io.c are unchanged.
