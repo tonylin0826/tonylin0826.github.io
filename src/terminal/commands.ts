@@ -94,9 +94,6 @@ export const PORTFOLIO_LINES: string[] = [
   '',
   'Modbus Master Tool - https://github.com/tonylin0826/ModbusMasterTool',
   '• A Modbus TCP Master Tool made using Qt',
-  '',
-  'http.io.c - https://github.com/tonylin0826/yeelight.io.c',
-  '• A C HTTP REST framework',
 ];
 
 export const LINKS_LINES: string[] = [
