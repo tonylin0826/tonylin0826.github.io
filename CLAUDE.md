@@ -126,12 +126,12 @@ Must plan to carry (or consciously drop with Tony):
 - 2026-11-08: Terminal `links` "Github:" line stays `https://tonylin0826.github.io` (Tony: "my website").
 - 2026-11-08: Resume = PDF at `/resume.pdf` (Enhancv dropped); `public/resume.pdf` is a placeholder until Tony sends the file.
 - 2026-11-08: Google Analytics dropped completely (GA4 `G-ZFJKSDJ43L`); not in the rebuild and not to be added.
-- 2026-11-08: Terminal profile copy replaced with Tony's new text (cover-letter paragraph omitted). The current-employer clause lives in one exported constant, `CURRENT_EMPLOYER_CLAUSE` (`src/terminal/commands.ts`), still Smartsheet; pending confirmation when Tony starts at Google on 2026-11-09.
+- 2026-11-08: Terminal profile copy replaced with Tony's new text (cover-letter paragraph omitted). The current-employer clause lives in one exported constant, `CURRENT_EMPLOYER_CLAUSE` (`src/terminal/commands.ts`), now Google (see the 2026-11-09 entry below).
+- 2026-11-09: Tony starts at Google as a Senior Software Engineer (confirmed 2026-11-08). `CURRENT_EMPLOYER_CLAUSE` is now "I'm currently a senior software engineer at Google"; Smartsheet is past (title Senior Software Engineer, years still `[Years]`, bullets in past tense); Google experience entry added at the top (title only, nothing invented); headline and meta description mention Google.
 - 2026-11-08: Headline, experience and projects copy in `index.html` is a **draft** derived only from Tony's supplied facts, pending his review (see "Draft site copy").
 
 ## Open questions (pending Tony)
 
-- **`CURRENT_EMPLOYER_CLAUSE`:** confirm/update when he starts at Google on 2026-11-09 (also the "At Smartsheet" paragraph and Smartsheet experience bullets).
 - **Real `resume.pdf`:** send the file to replace the placeholder in `public/resume.pdf`.
 - **Draft headline / experience / projects:** review the copy below; fill in `[Company]` / `[Years]`.
 - **Hobbies copy** ("Outside work" panel, `TODO(Tony)` in `index.html`) still pending.
@@ -141,12 +141,13 @@ Must plan to carry (or consciously drop with Tony):
 
 Headline one-liner (`intro__summary`, and the meta description):
 
-> Senior software engineer with about nine years across full-stack, backend, embedded IoT and native Android.
+> Senior software engineer at Google with about nine years across full-stack, backend, embedded IoT and native Android.
 
 Experience (`[Company]` / `[Years]` unknown):
 
-- **Smartsheet** [Years] — senior software engineer. Led the technical design and implementation of an AI formula generation feature used by around 42,000 weekly active users.
-- **Smartsheet** [Years] — designed a secure developer tunneling proof of concept using mTLS and Kubernetes that cut development and testing iteration time by roughly 90%.
+- **Google** 2026–present — Senior Software Engineer (title only; no description).
+- **Smartsheet** [Years] — Senior Software Engineer. Led the technical design and implementation of an AI formula generation feature used by around 42,000 weekly active users.
+- **Smartsheet** [Years] — Senior Software Engineer. Designed a secure developer tunneling proof of concept using mTLS and Kubernetes that cut development and testing iteration time by roughly 90%.
 - **[Company]** [Years] — led a team of six engineers building a backend system for the management and communication of over 70,000 smart meters, working directly with Taiwan Power stakeholders.
 - **[Company]** [Years] — led development of ViaTalkBT, a native Android app that turns a phone into a wireless input device for voice typing and trackpad control.
 
