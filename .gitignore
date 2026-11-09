@@ -1,0 +1,7 @@
+node_modules
+dist
+public/placeholder-frames/
+.env*
+!.env.example
+coverage
+.DS_Store
