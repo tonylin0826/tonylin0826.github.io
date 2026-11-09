@@ -56,8 +56,8 @@ describe('commands (verbatim copy)', () => {
   });
 
   it('CURRENT_EMPLOYER_CLAUSE feeds the profile', () => {
-    expect(CURRENT_EMPLOYER_CLAUSE).toBe("I'm currently a senior software engineer at Smartsheet");
-    expect(PROFILE_LINES.join(' ')).toContain('senior software engineer at Smartsheet');
+    expect(CURRENT_EMPLOYER_CLAUSE).toBe("I'm currently a senior software engineer at Google");
+    expect(PROFILE_LINES.join(' ')).toContain('senior software engineer at Google');
   });
 
   it('wrapText wraps greedily', () => {

@@ -44,10 +44,11 @@ export const HELP_LINES: string[] = [
 ];
 
 /**
- * TODO(Tony): current-employer clause. Tony starts at Google on 2026-11-09 and
- * may change this. Edit this one constant; PROFILE_LINES is built from it.
+ * Current-employer clause. Tony started at Google on 2026-11-09 as a Senior
+ * Software Engineer (no further role details supplied). Edit this one
+ * constant; PROFILE_LINES is built from it.
  */
-export const CURRENT_EMPLOYER_CLAUSE = "I'm currently a senior software engineer at Smartsheet";
+export const CURRENT_EMPLOYER_CLAUSE = "I'm currently a senior software engineer at Google";
 
 /** Terminal width the profile copy is wrapped to (bottom-right xterm). */
 export const PROFILE_WRAP_WIDTH = 70;
