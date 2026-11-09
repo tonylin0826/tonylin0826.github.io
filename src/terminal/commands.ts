@@ -1,11 +1,11 @@
 /**
- * Terminal commands, ported verbatim from the 2017/Angular site's terminal.
- * Pure and framework-agnostic: no DOM, no xterm.
+ * Terminal commands. Pure and framework-agnostic: no DOM, no xterm.
  *
- * Copy is intentionally kept exactly as in the original, typos included
- * ("more the 10 million dollars", "Support command:", trailing space after
- * "government ", the `links` "Github:" line pointing at the site). See the
- * Open questions section of CLAUDE.md.
+ * `profile` copy was replaced on 2026-11-08 with Tony's new text (see
+ * CURRENT_EMPLOYER_CLAUSE below). `portfolio`, `links` and `help` keep the
+ * original 2017/Angular copy verbatim, quirks included (trailing space after
+ * "government ", `links` "Github:" pointing at the site, which Tony confirmed
+ * means "my website"). `resume` opens the PDF at /resume.pdf.
  */
 
 export interface CommandResult {
@@ -21,8 +21,8 @@ export interface Command {
 
 export const GREETING = "Hello, my name is Tony. Type 'help' to see more";
 export const PROMPT = '$ ';
-export const RESUME_URL =
-  'https://app.enhancv.com/share/96f104d4?utm_medium=growth&utm_campaign=share-resume&utm_source=dynamic';
+/** Same-origin PDF (public/resume.pdf). Placeholder until Tony supplies the real file. */
+export const RESUME_URL = '/resume.pdf';
 
 /** Descriptions as shown in the help listing. */
 export const DESCRIPTIONS = {
@@ -43,13 +43,41 @@ export const HELP_LINES: string[] = [
   ' - help\t\tshow usage',
 ];
 
-export const PROFILE_LINES: string[] = [
-  "Hi, I'm Tony. I've been a full-stack engineer for more than 4 years.",
-  '',
-  "During my time in Ardomus Networks, a subsidiary of Zyxel, I'm responsible for leading a 6-person team to develop IoT applications. One project worth mentioning is the HES(Head-end System), a national project we develop as a part of Taiwan's AMI(Advanced Metering Infrastructure) for Taiwan-Power to manage over 70k of their meters and FAN modules. I and my team put a lot of effort into making this system distributed and highly available. This project brings Ardomus more the 10 million dollars of income.",
-  '',
-  'Last year, I built a team of 8 and won 2nd place in AWS Hack for Good hackathon. I was responsible to manage the schedule, design the software architecture and present our project on the final pitch. Last but not least, our winning project is open source and can be found on GitHub.',
+/**
+ * TODO(Tony): current-employer clause. Tony starts at Google on 2026-11-09 and
+ * may change this. Edit this one constant; PROFILE_LINES is built from it.
+ */
+export const CURRENT_EMPLOYER_CLAUSE = "I'm currently a senior software engineer at Smartsheet";
+
+/** Terminal width the profile copy is wrapped to (bottom-right xterm). */
+export const PROFILE_WRAP_WIDTH = 70;
+
+/** Greedy word wrap; pure. */
+export function wrapText(text: string, width: number): string[] {
+  const lines: string[] = [];
+  let line = '';
+  for (const word of text.split(/\s+/).filter(Boolean)) {
+    if (line && line.length + 1 + word.length > width) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = line ? `${line} ${word}` : word;
+    }
+  }
+  if (line) lines.push(line);
+  return lines;
+}
+
+export const PROFILE_PARAGRAPHS: string[] = [
+  `I've been a software engineer for about nine years, and ${CURRENT_EMPLOYER_CLAUSE}. My experience spans full-stack development, backend services, and earlier in my career, embedded IoT systems and native Android applications.`,
+  'At Smartsheet, I led the technical design and implementation of an AI formula generation feature used by around 42,000 weekly active users. I also designed a secure developer tunneling proof of concept using mTLS and Kubernetes that reduced development and testing iteration time by roughly 90%.',
+  'Earlier, I led a team of six engineers building a backend system supporting the management and communication of over 70,000 smart meters. I worked directly with Taiwan Power stakeholders to clarify requirements and translate them into concrete engineering work. I also led development of ViaTalkBT, a native Android app that turned a phone into a wireless input device for voice typing and trackpad control.',
 ];
+
+export const PROFILE_LINES: string[] = PROFILE_PARAGRAPHS.flatMap((p, i) => [
+  ...(i > 0 ? [''] : []),
+  ...wrapText(p, PROFILE_WRAP_WIDTH),
+]);
 
 export const PORTFOLIO_LINES: string[] = [
   '',

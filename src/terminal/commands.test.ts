@@ -1,13 +1,17 @@
 import { describe, expect, it } from 'vitest';
 import {
   COMMANDS,
+  CURRENT_EMPLOYER_CLAUSE,
   GREETING,
   HELP_LINES,
+  PROFILE_LINES,
+  PROFILE_WRAP_WIDTH,
   PROMPT,
   RESUME_URL,
   complete,
   notFound,
   runCommand,
+  wrapText,
 } from './commands';
 import { handleKey } from './lineEditor';
 
@@ -36,14 +40,29 @@ describe('commands (verbatim copy)', () => {
 
   it('profile', () => {
     const { lines } = runCommand('profile');
-    expect(lines).toHaveLength(5);
-    expect(lines[0]).toBe("Hi, I'm Tony. I've been a full-stack engineer for more than 4 years.");
-    expect(lines[1]).toBe('');
-    expect(lines[2]).toContain('leading a 6-person team to develop IoT applications');
-    expect(lines[2]?.endsWith('This project brings Ardomus more the 10 million dollars of income.')).toBe(true);
-    expect(lines[3]).toBe('');
-    expect(lines[4]?.startsWith('Last year, I built a team of 8 and won 2nd place in AWS Hack for Good hackathon.')).toBe(true);
-    expect(lines[4]?.endsWith('our winning project is open source and can be found on GitHub.')).toBe(true);
+    expect(lines).toBe(PROFILE_LINES);
+    expect(lines.every((l) => l.length <= PROFILE_WRAP_WIDTH)).toBe(true);
+    const paragraphs = lines
+      .join('\n')
+      .split('\n\n')
+      .map((p) => p.replace(/\n/g, ' '));
+    expect(paragraphs).toHaveLength(3);
+    expect(paragraphs[0]).toContain(`about nine years, and ${CURRENT_EMPLOYER_CLAUSE}. My experience spans`);
+    expect(paragraphs[1]).toContain('around 42,000 weekly active users');
+    expect(paragraphs[1]).toContain('roughly 90%.');
+    expect(paragraphs[2]).toContain('over 70,000 smart meters');
+    expect(paragraphs[2]?.endsWith('voice typing and trackpad control.')).toBe(true);
+    expect(lines.join(' ')).not.toMatch(/Ardomus|AWS|Andreas|RCS/);
+  });
+
+  it('CURRENT_EMPLOYER_CLAUSE feeds the profile', () => {
+    expect(CURRENT_EMPLOYER_CLAUSE).toBe("I'm currently a senior software engineer at Smartsheet");
+    expect(PROFILE_LINES.join(' ')).toContain('senior software engineer at Smartsheet');
+  });
+
+  it('wrapText wraps greedily', () => {
+    expect(wrapText('aa bb cc', 5)).toEqual(['aa bb', 'cc']);
+    expect(wrapText('', 5)).toEqual([]);
   });
 
   it('portfolio', () => {
@@ -76,11 +95,9 @@ describe('commands (verbatim copy)', () => {
     ]);
   });
 
-  it('resume opens the Enhancv URL and prints nothing', () => {
+  it('resume opens the PDF and prints nothing', () => {
     expect(runCommand('resume')).toEqual({ lines: [], action: { type: 'open', url: RESUME_URL } });
-    expect(RESUME_URL).toBe(
-      'https://app.enhancv.com/share/96f104d4?utm_medium=growth&utm_campaign=share-resume&utm_source=dynamic',
-    );
+    expect(RESUME_URL).toBe('/resume.pdf');
   });
 
   it('not found', () => {
