@@ -19,6 +19,10 @@ Tony Lin's personal website — a scroll-driven experience built with Vite + Typ
 
 Frames are loaded from `/assets/frames/` when its `manifest.json` exists, otherwise from the generated `/placeholder-frames/`. Override with `VITE_FRAMES_BASE` (see `.env.example`).
 
+## Placeholder frames
+
+`public/placeholder-frames/` (3 clips × (120 desktop + 60 mobile) = 540 WebP files + `manifest.json`) is **gitignored and generated** by `npm run frames:placeholder` from `docs/manifest.sample.json`, automatically on `predev`/`prebuild` when missing. This keeps the repo light. Flags: `--if-missing` (skip when up to date), `--force` (regenerate). It never touches `assets/frames/`.
+
 ## Asset contract
 
 `assets/frames/` and `manifest.json` are owned by the Visual Asset Producer and are read-only here. See [docs/asset-contract.md](docs/asset-contract.md).
