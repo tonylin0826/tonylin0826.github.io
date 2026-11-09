@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "format": "webp",
+  "fps": 24,
+  "background": "#d9d9d9",
+  "heroes": [
+    "badminton",
+    "golf",
+    "dogs",
+    "engineer"
+  ],
+  "clips": [
+    {
+      "id": "t1-badminton-golf",
+      "from": "badminton",
+      "to": "golf",
+      "variants": {
+        "desktop": {
+          "frameCount": 120,
+          "width": 1920,
+          "height": 1080,
+          "pathPattern": "t1-badminton-golf/desktop/{frame:04}.webp"
+        },
+        "mobile": {
+          "frameCount": 60,
+          "width": 810,
+          "height": 1080,
+          "pathPattern": "t1-badminton-golf/mobile/{frame:04}.webp"
+        }
+      },
+      "heroFrames": {
+        "start": 1,
+        "end": "last"
+      },
+      "poster": {
+        "desktop": "t1-badminton-golf/desktop/0001.webp",
+        "mobile": "t1-badminton-golf/mobile/0001.webp"
+      }
+    },
+    {
+      "id": "t2-golf-dogs",
+      "from": "golf",
+      "to": "dogs",
+      "variants": {
+        "desktop": {
+          "frameCount": 120,
+          "width": 1920,
+          "height": 1080,
+          "pathPattern": "t2-golf-dogs/desktop/{frame:04}.webp"
+        },
+        "mobile": {
+          "frameCount": 60,
+          "width": 810,
+          "height": 1080,
+          "pathPattern": "t2-golf-dogs/mobile/{frame:04}.webp"
+        }
+      },
+      "heroFrames": {
+        "start": 1,
+        "end": "last"
+      },
+      "poster": {
+        "desktop": "t2-golf-dogs/desktop/0001.webp",
+        "mobile": "t2-golf-dogs/mobile/0001.webp"
+      }
+    },
+    {
+      "id": "t3-dogs-engineer",
+      "from": "dogs",
+      "to": "engineer",
+      "variants": {
+        "desktop": {
+          "frameCount": 120,
+          "width": 1920,
+          "height": 1080,
+          "pathPattern": "t3-dogs-engineer/desktop/{frame:04}.webp"
+        },
+        "mobile": {
+          "frameCount": 60,
+          "width": 810,
+          "height": 1080,
+          "pathPattern": "t3-dogs-engineer/mobile/{frame:04}.webp"
+        }
+      },
+      "heroFrames": {
+        "start": 1,
+        "end": "last"
+      },
+      "poster": {
+        "desktop": "t3-dogs-engineer/desktop/0001.webp",
+        "mobile": "t3-dogs-engineer/mobile/0001.webp"
+      }
+    }
+  ]
+}
